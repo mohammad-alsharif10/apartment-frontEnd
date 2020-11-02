@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form #signUpForm="ngForm" (ngSubmit)="login()">
+        <div id="user-data1">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input [(ngModel)]="loginRequest.username" class="form-control" id="username" name="userName" required
+                   type="text">
+          </div>
+          <div class="form-group">
+            <label for="password">password</label>
+            <input [(ngModel)]="loginRequest.password" class="form-control" id="password" name="password"
+                   required type="password">
+          </div>
+
+        </div>
+        <button [disabled]="!signUpForm.valid" class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!--<div class="viewport">-->
+<!--  <div class="row m-0">-->
+<!--    <div class="sec-title text-center col-sm-12">-->
+<!--      <h2>LOGIN</h2>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <section class="login">-->
+<!--    <div class="row mr-0">-->
+<!--      <div class="sec-txt col-xs-12 col-md-7">-->
+<!--        <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tempus iaculis urna id volutpat. Sed velit dignissim sodales ut eu sem integer vitae. Massa vitae tortor condimentum lacinia quis. Nisl nunc mi ipsum faucibus vitae aliquet nec. Et ligula ullamcorper malesuada proin. Quis viverra nibh cras pulvinar mattis. Turpis cursus in hac habitasse platea. Ac turpis egestas sed tempus. Dolor morbi non arcu risus. Adipiscing commodo elit at imperdiet dui.</p>-->
+<!--      </div>-->
+<!--      <div class="form-sec col-xs-12 col-md-5">-->
+<!--        <form>-->
+<!--          <div class="form-group">-->
+<!--            <label for="exampleInputEmail1">Email address</label>-->
+<!--            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
+<!--            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label for="exampleInputPassword1">Password</label>-->
+<!--            <input type="password" class="form-control" id="exampleInputPassword1">-->
+<!--          </div>-->
+<!--          <div class="form-group form-check">-->
+<!--            <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--            <label class="form-check-label" for="exampleCheck1">Save Password</label>-->
+<!--            <div class="clearfix"></div>-->
+<!--          </div>-->
+<!--          <button class="btn ">LogIn</button>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+
+<!--  <div class="row m-0">-->
+<!--    <div class="sec-title text-center col-sm-12">-->
+<!--      <h2>LOGIN</h2>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <section class="login">-->
+<!--    <div class="row mr-0">-->
+<!--      <div class="form-sec col-xs-12 col-md-5">-->
+<!--        <form>-->
+<!--          <form>-->
+<!--            <div class="form-row">-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="email" class="form-control" id="inputEmail4">-->
+<!--                <label for="inputEmail4">Email</label>-->
+<!--              </div>-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="password" class="form-control" id="inputPassword4">-->
+<!--                <label for="inputPassword4">Password</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-row">-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="text" class="form-control" id="firstName">-->
+<!--                <label for="firstName">First Name</label>-->
+<!--              </div>-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="text" class="form-control" id="lastName">-->
+<!--                <label for="lastName">Last Name</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-row">-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="number" class="form-control" id="phone">-->
+<!--                <label for="phone">Phone</label>-->
+<!--              </div>-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="date" class="form-control" id="date">-->
+<!--                <label for="date">Date of birth</label>-->
+<!--                <i class="fas fa-calendar-day"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-row">-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="text" class="form-control" id="faculty">-->
+<!--                <label for="faculty">Faculty</label>-->
+<!--              </div>-->
+<!--              <div class="form-group col-md-6">-->
+<!--                <input type="text" class="form-control" id="university">-->
+<!--                <label for="university">University</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="form-row radio text-center">-->
+<!--              <div class="form-group gender col-md-6">-->
+<!--                <input type="radio" name="gender" class="form-control" id="male">-->
+<!--                <label for="male">Male</label>-->
+<!--              </div>-->
+<!--              <div class="form-group gender col-md-6">-->
+<!--                <input type="radio" name="gender" class="form-control" id="female">-->
+<!--                <label for="female">Female</label>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <button class="btn btn-primary">SignUp</button>-->
+<!--          </form>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--      <div class="sec-txt col-xs-12 col-md-7">-->
+<!--        <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tempus iaculis urna id volutpat. Sed velit dignissim sodales ut eu sem integer vitae. Massa vitae tortor condimentum lacinia quis. Nisl nunc mi ipsum faucibus vitae aliquet nec. Et ligula ullamcorper malesuada proin. Quis viverra nibh cras pulvinar mattis. Turpis cursus in hac habitasse platea. Ac turpis egestas sed tempus. Dolor morbi non arcu risus. Adipiscing commodo elit at imperdiet dui.</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+
+<!--</div>-->
