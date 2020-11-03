@@ -13,7 +13,8 @@ export class ApartmentListResolver implements Resolve<PageResult<Apartment>> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
     : Observable<PageResult<Apartment>> | Promise<PageResult<Apartment>> | PageResult<Apartment> {
     const page = new PageResult<Apartment>();
-    const apartment = new Apartment(4);
+    const apartment = new Apartment();
+    apartment.streetName = 'hi';
     page.data.push(apartment);
     console.log('this is the page resolver');
     console.log(page);

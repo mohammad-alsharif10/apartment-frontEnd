@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginRequest} from '../../model/LoginRequest';
 import {AuthService} from '../../service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Constants} from '../../utils/Constants';
 
 @Component({
   selector: 'app-auth',
@@ -24,6 +25,9 @@ export class AuthComponent implements OnInit {
         value => {
           console.log(value);
           this.authService.isLoggedIn = true;
+          Constants.authenticationResponse = value.data;
+          console.log('constant');
+          console.log(Constants.authenticationResponse);
           this.router.navigate(['/apartments'])
             .then(_ => {
             });

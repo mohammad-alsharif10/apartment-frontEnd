@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Apartment} from '../../../model/Apartment';
+import {ApartmentService} from '../../../service/apartment.service';
 
 @Component({
   selector: 'app-apartment-create',
@@ -7,9 +9,27 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ApartmentCreateComponent implements OnInit {
 
-  constructor() { }
+  apartment: Apartment = new Apartment();
+  images: string[] = [];
+
+  constructor(private apartmentService: ApartmentService) {
+  }
 
   ngOnInit(): void {
   }
+
+  onFileChanged(event): void {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < event.target.files.length; i++) {
+      this.images.push(event.target.files[i]);
+    }
+  }
+
+  postApartment(): void {
+    this.apartmentService.postApartment(this.images, this.apartment).subscribe(value => {
+      console.log(value);
+    });
+  }
+
 
 }

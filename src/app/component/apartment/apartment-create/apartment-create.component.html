@@ -1,1 +1,26 @@
-<p>apartment-create works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form #signUpForm="ngForm" (ngSubmit)="postApartment()">
+        <div id="user-data1">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input [(ngModel)]="apartment.regionName" class="form-control" id="username" name="userName" required
+                   type="text">
+          </div>
+          <div class="form-group">
+            <label for="password">password</label>
+            <input [(ngModel)]="apartment.streetName" class="form-control" id="password" name="password"
+                   required type="password">
+          </div>
+          <div class="form-group">
+            <label for="images">Username</label>
+            <input (change)="onFileChanged($event)" class="form-control" id="images" multiple name="images" required type="file">
+          </div>
+
+        </div>
+        <button [disabled]="!signUpForm.valid" class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

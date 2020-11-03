@@ -15,14 +15,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(): void {
-    this.authService.isLoggedIn = false;
-    this.router.navigate(['/signin']).then(value => console.log(value));
-  }
-
 
   goToProfile(): void {
     this.router.navigate(['/profile']).then(value => console.log(value));
+  }
+
+  goToPostApartment(): void {
+    this.router.navigate(['/post-apartment']).then(value => console.log(value));
+  }
+
+  logout(): void {
+    this.authService.isLoggedIn = false;
+    this.router.navigate(['/signin']).then(value => console.log(value));
   }
 
 
