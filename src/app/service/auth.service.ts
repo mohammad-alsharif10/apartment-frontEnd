@@ -11,8 +11,6 @@ import {SingleResult} from '../model/SingleResult';
 })
 export class AuthService {
 
-  isLoggedIn = false;
-
   constructor(private httpClient: HttpClient) {
   }
 

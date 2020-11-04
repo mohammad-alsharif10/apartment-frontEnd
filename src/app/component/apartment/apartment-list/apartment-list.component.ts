@@ -3,6 +3,9 @@ import {AuthService} from '../../../service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PageResult} from '../../../model/PageResult';
 import {Apartment} from '../../../model/Apartment';
+import {Constants} from '../../../utils/Constants';
+import {HttpClient} from '@angular/common/http';
+import {ApartmentService} from '../../../service/apartment.service';
 
 @Component({
   selector: 'app-apartment-list',
@@ -13,7 +16,11 @@ export class ApartmentListComponent implements OnInit {
 
   apartmentPageResult: PageResult<Apartment>;
 
-  constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private authService: AuthService,
+              private apartmentService: ApartmentService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
@@ -22,7 +29,12 @@ export class ApartmentListComponent implements OnInit {
   logout(): void {
     this.apartmentPageResult = this.activatedRoute.snapshot.data.apartmentPageResult;
     console.log(this.apartmentPageResult);
-    this.authService.isLoggedIn = false;
+    localStorage.setItem(Constants.JWT, '');
     this.router.navigate(['/signin']).then(value => console.log(value));
+  }
+
+  demoSecurity(): void {
+    this.apartmentService.demo().subscribe(value => console.log(value));
+    console.log('hello');
   }
 }

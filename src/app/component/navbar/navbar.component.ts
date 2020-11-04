@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../service/auth.service';
 import {Router} from '@angular/router';
+import {Constants} from '../../utils/Constants';
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.isLoggedIn = false;
+    localStorage.setItem(Constants.JWT, '');
     this.router.navigate(['/signin']).then(value => console.log(value));
   }
 

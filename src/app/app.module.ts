@@ -34,7 +34,13 @@ import {ApartmentCreateComponent} from './component/apartment/apartment-create/a
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ApartmentListResolver],
+  providers: [ApartmentListResolver,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true
+    // }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

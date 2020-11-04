@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginRequest} from '../../model/LoginRequest';
 import {AuthService} from '../../service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {stringify} from 'querystring';
 import {Constants} from '../../utils/Constants';
 
 @Component({
@@ -24,10 +25,9 @@ export class AuthComponent implements OnInit {
       .subscribe(
         value => {
           console.log(value);
-          this.authService.isLoggedIn = true;
-          Constants.authenticationResponse = value.data;
-          console.log('constant');
-          console.log(Constants.authenticationResponse);
+          localStorage.setItem(Constants.JWT, value.data.authenticationToken);
+          localStorage.setItem(Constants.USERNAME, value.data.username);
+          localStorage.setItem(Constants.EXPIRES_AT, stringify(value.data.expiresAt));
           this.router.navigate(['/apartments'])
             .then(_ => {
             });
