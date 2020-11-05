@@ -11,6 +11,8 @@ export class Constants {
   public static readonly JWT: string = 'JWT';
   public static readonly USERNAME: string = 'username';
   public static readonly EXPIRES_AT: string = 'expiresAt';
-  public static readonly deleteApartment: string = 'http://127.0.0.1:8080/apartment/delete/1';
+  public static readonly deleteApartment: string = 'http://localhost:8080/apartment/delete/1';
+  public static readonly findApartment: string = 'http://localhost:8080/apartment/find/1';
+
 
 }

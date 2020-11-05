@@ -11,6 +11,7 @@ export class ApartmentCreateComponent implements OnInit {
 
   apartment: Apartment = new Apartment();
   images: string[] = [];
+  imagesMap: Map<string, string> = new Map<string, string>();
 
   constructor(private apartmentService: ApartmentService) {
   }
@@ -22,11 +23,12 @@ export class ApartmentCreateComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < event.target.files.length; i++) {
       this.images.push(event.target.files[i]);
+      this.imagesMap.set(event.target.files[i].name, event.target.files[i]);
     }
   }
 
   postApartment(): void {
-    this.apartmentService.postApartment(this.images, this.apartment).subscribe(value => {
+    this.apartmentService.postApartment(this.imagesMap, this.apartment).subscribe(value => {
       console.log(value);
     });
   }

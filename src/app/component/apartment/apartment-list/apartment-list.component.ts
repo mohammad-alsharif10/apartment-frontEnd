@@ -33,8 +33,13 @@ export class ApartmentListComponent implements OnInit {
     this.router.navigate(['/signin']).then(value => console.log(value));
   }
 
-  demoSecurity(): void {
-    this.apartmentService.demo().subscribe(value => console.log(value));
-    console.log('hello');
+  deleteApartment(): void {
+    this.apartmentService.findApartment(1)
+      .subscribe(value => {
+        console.log('the apartment');
+        console.log(value);
+      }, error => {
+        console.log(error.error);
+      });
   }
 }

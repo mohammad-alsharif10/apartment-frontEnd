@@ -15,9 +15,10 @@ export class ApartmentService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public postApartment(images: string[], apartment: Apartment): Observable<SingleResult<Apartment>> {
-    images.forEach(value => {
-      this.postApartmentForm.append('images', value, 'images');
+  public postApartment(images: Map<string, string>, apartment: Apartment): Observable<SingleResult<Apartment>> {
+
+    images.forEach((value, key) => {
+      this.postApartmentForm.append('images', value, key);
     });
     this.postApartmentForm.append('apartment', JSON.stringify(apartment));
     return this.httpClient.post <SingleResult<Apartment>>(Constants.postApartment, this.postApartmentForm, {
@@ -25,9 +26,9 @@ export class ApartmentService {
     });
   }
 
-  public demo(): Observable<string> {
-    return this.httpClient.get<string>('http://127.0.0.1:8080/demo/demo', {
-      headers: new HttpHeaders().set(Constants.Authorization, localStorage.getItem(Constants.JWT)),
-    });
+  public findApartment(apartmentId: number): Observable<SingleResult<Apartment>> {
+    return this.httpClient.get <SingleResult<Apartment>>(Constants.findApartment);
   }
+
+
 }

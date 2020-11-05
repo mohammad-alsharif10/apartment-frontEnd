@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {AuthComponent} from './component/auth/auth.component';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ApartmentListComponent} from './component/apartment/apartment-list/apartment-list.component';
 import {ApartmentItemComponent} from './component/apartment/apartment-item/apartment-item.component';
 import {ApartmentDetailsComponent} from './component/apartment/apartment-details/apartment-details.component';
@@ -14,6 +14,7 @@ import {ApartmentListResolver} from './guard/apartment-list-resolver';
 import {NavbarComponent} from './component/navbar/navbar.component';
 import {ProfileComponent} from './component/profile/profile.component';
 import {ApartmentCreateComponent} from './component/apartment/apartment-create/apartment-create.component';
+import {AuthInterceptor} from './guard/auth-interceptor';
 
 
 @NgModule({
@@ -35,11 +36,11 @@ import {ApartmentCreateComponent} from './component/apartment/apartment-create/a
     AppRoutingModule
   ],
   providers: [ApartmentListResolver,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptor,
-    //   multi: true
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
     ],
   bootstrap: [AppComponent]
 })
