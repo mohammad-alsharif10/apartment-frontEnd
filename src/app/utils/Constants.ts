@@ -13,6 +13,7 @@ export class Constants {
   public static readonly EXPIRES_AT: string = 'expiresAt';
   public static readonly deleteApartment: string = 'http://localhost:8080/apartment/delete/1';
   public static readonly findApartment: string = 'http://localhost:8080/apartment/find/1';
+  public static readonly apartmentPage: string = 'http://localhost:8080/apartment/apartment-list';
 
 
 }

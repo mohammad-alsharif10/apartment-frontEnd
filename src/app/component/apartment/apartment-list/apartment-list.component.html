@@ -1,4 +1,11 @@
 <app-navbar></app-navbar>
-<h1>apartment-list works!</h1>
-<button (click)="deleteApartment()">demo</button>
+<div *ngFor="let apartment of apartmentPageResult.data ; index as index">
+  <div *ngFor="let image of apartment.images">
+    <img alt="Girl in a jacket" height="600" src="{{'file:///'+image.path}}" width="500">
+  </div>
+</div>
 
+<img alt="Girl in a jacket"
+     height="600"
+     src="F:\personal-projects\images\apartmentImages\mohammad30"
+     width="500">

@@ -5,7 +5,6 @@ import {AuthComponent} from '../component/auth/auth.component';
 import {ApartmentListComponent} from '../component/apartment/apartment-list/apartment-list.component';
 import {NotFoundComponent} from '../component/not-found/not-found.component';
 import {AuthGuard} from '../guard/auth.guard';
-import {ApartmentListResolver} from '../guard/apartment-list-resolver';
 import {ProfileComponent} from '../component/profile/profile.component';
 import {ApartmentCreateComponent} from '../component/apartment/apartment-create/apartment-create.component';
 
@@ -15,7 +14,7 @@ const appRoutes: Routes = [
     path: '',
     component: ApartmentListComponent,
     canActivate: [AuthGuard],
-    resolve: {apartmentPageResult: ApartmentListResolver}
+    // resolve: {apartmentPageResult: ApartmentListResolver}
   },
   {
     path: 'post-apartment',
@@ -39,7 +38,7 @@ const appRoutes: Routes = [
     path: 'apartments',
     component: ApartmentListComponent,
     canActivate: [AuthGuard],
-    resolve: {apartmentPageResult: ApartmentListResolver}
+    // resolve: {apartmentPageResult: ApartmentListResolver}
   },
   {
     path: 'not-found',

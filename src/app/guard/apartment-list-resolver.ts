@@ -3,21 +3,20 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {PageResult} from '../model/PageResult';
 import {Apartment} from '../model/Apartment';
 import {Observable} from 'rxjs';
+import {ApartmentService} from '../service/apartment.service';
 
 @Injectable()
 export class ApartmentListResolver implements Resolve<PageResult<Apartment>> {
 
-  constructor() {
+  constructor(private apartmentService: ApartmentService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
     : Observable<PageResult<Apartment>> | Promise<PageResult<Apartment>> | PageResult<Apartment> {
-    const page = new PageResult<Apartment>();
-    const apartment = new Apartment();
-    apartment.streetName = 'hi';
-    page.data.push(apartment);
-    console.log('this is the page resolver');
-    console.log(page);
-    return page;
+    let apartmentPageResult = new PageResult<Apartment>();
+    this.apartmentService.apartmentPage().subscribe(value => {
+      apartmentPageResult = value;
+    });
+    return apartmentPageResult;
   }
 }
