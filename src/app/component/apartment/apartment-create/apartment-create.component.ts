@@ -22,7 +22,6 @@ export class ApartmentCreateComponent implements OnInit {
   onFileChanged(event): void {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < event.target.files.length; i++) {
-      this.images.push(event.target.files[i]);
       this.imagesMap.set(event.target.files[i].name, event.target.files[i]);
     }
   }

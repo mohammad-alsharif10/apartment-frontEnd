@@ -5,14 +5,14 @@
       <form #signUpForm="ngForm" (ngSubmit)="postApartment()">
         <div id="user-data1">
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">regionName</label>
             <input [(ngModel)]="apartment.regionName" class="form-control" id="username" name="userName" required
                    type="text">
           </div>
           <div class="form-group">
-            <label for="password">password</label>
+            <label for="password">streetName</label>
             <input [(ngModel)]="apartment.streetName" class="form-control" id="password" name="password"
-                   required type="password">
+                   required type="text">
           </div>
           <div class="form-group">
             <label for="images">Username</label>

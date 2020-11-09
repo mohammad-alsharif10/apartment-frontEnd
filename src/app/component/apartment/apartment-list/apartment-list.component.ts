@@ -11,6 +11,7 @@ import {ApartmentService} from '../../../service/apartment.service';
 export class ApartmentListComponent implements OnInit {
 
   apartmentPageResult: PageResult<Apartment> = new PageResult<Apartment>();
+  values: number[] = [102, 115, 130, 137];
 
   constructor(private apartmentService: ApartmentService) {
   }

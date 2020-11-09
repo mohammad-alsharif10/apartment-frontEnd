@@ -15,6 +15,8 @@ import {NavbarComponent} from './component/navbar/navbar.component';
 import {ProfileComponent} from './component/profile/profile.component';
 import {ApartmentCreateComponent} from './component/apartment/apartment-create/apartment-create.component';
 import {AuthInterceptor} from './guard/auth-interceptor';
+import {jqxBarGaugeModule} from 'jqwidgets-ng/jqxbargauge';
+import {jqxLoaderModule} from 'jqwidgets-ng/jqxloader';
 
 
 @NgModule({
@@ -33,7 +35,10 @@ import {AuthInterceptor} from './guard/auth-interceptor';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    jqxBarGaugeModule,
+    jqxLoaderModule,
+
   ],
   providers: [ApartmentListResolver,
     {
@@ -41,7 +46,7 @@ import {AuthInterceptor} from './guard/auth-interceptor';
       useClass: AuthInterceptor,
       multi: true
     }
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

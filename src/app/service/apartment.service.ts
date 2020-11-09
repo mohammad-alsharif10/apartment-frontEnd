@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Apartment} from '../model/Apartment';
 import {Observable} from 'rxjs';
 import {SingleResult} from '../model/SingleResult';
@@ -22,9 +22,7 @@ export class ApartmentService {
       this.postApartmentForm.append('images', value, key);
     });
     this.postApartmentForm.append('apartment', JSON.stringify(apartment));
-    return this.httpClient.post <SingleResult<Apartment>>(Constants.postApartment, this.postApartmentForm, {
-      headers: new HttpHeaders().set(Constants.Authorization, localStorage.getItem(Constants.JWT))
-    });
+    return this.httpClient.post <SingleResult<Apartment>>(Constants.postApartment, this.postApartmentForm);
   }
 
   public findApartment(apartmentId: number): Observable<SingleResult<Apartment>> {
@@ -34,7 +32,7 @@ export class ApartmentService {
   public apartmentPage(): Observable<PageResult<Apartment>> {
     const params = new HttpParams()
       .set('page', '0')
-      .set('size', '1');
+      .set('size', '10');
     return this.httpClient.get<PageResult<Apartment>>(Constants.apartmentPage, {
       params
     });

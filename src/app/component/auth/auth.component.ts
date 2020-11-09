@@ -1,9 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoginRequest} from '../../model/LoginRequest';
 import {AuthService} from '../../service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {stringify} from 'querystring';
 import {Constants} from '../../utils/Constants';
+import {jqxLoaderComponent} from 'jqwidgets-ng/jqxloader';
+import {AuthenticationResponse} from '../../model/AuthenticationResponse';
+import {SingleResult} from '../../model/SingleResult';
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +16,8 @@ import {Constants} from '../../utils/Constants';
 export class AuthComponent implements OnInit {
 
   loginRequest: LoginRequest = new LoginRequest();
+  @ViewChild('jqxLoader') jqxLoader: jqxLoaderComponent;
+  showLoading = false;
 
   constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
   }
@@ -21,18 +26,24 @@ export class AuthComponent implements OnInit {
   }
 
   login(): void {
+    this.jqxLoader.open();
     this.authService.login(this.loginRequest)
       .subscribe(
         value => {
-          console.log(value);
-          localStorage.setItem(Constants.JWT, value.data.authenticationToken);
-          localStorage.setItem(Constants.USERNAME, value.data.username);
-          localStorage.setItem(Constants.EXPIRES_AT, stringify(value.data.expiresAt));
-          this.router.navigate(['/apartments'])
-            .then(_ => {
-            });
+          this.handleSuccessLoginResponse(value);
         },
         error => console.log(error.error)
       );
+  }
+
+  private handleSuccessLoginResponse(authenticationResponse: SingleResult<AuthenticationResponse>): void {
+    console.log(authenticationResponse);
+    this.jqxLoader.close();
+    localStorage.setItem(Constants.JWT, authenticationResponse.data.authenticationToken);
+    localStorage.setItem(Constants.USERNAME, authenticationResponse.data.username);
+    localStorage.setItem(Constants.EXPIRES_AT, stringify(authenticationResponse.data.expiresAt));
+    this.router.navigate(['/apartments'])
+      .then(_ => {
+      });
   }
 }
