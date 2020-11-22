@@ -24,7 +24,7 @@ export class Apartment extends BasicModel {
   streetName: string;
 
 
-  blockName: string;
+  blockNumber: number;
 
 
   neighborhoodName: string;
@@ -44,6 +44,10 @@ export class Apartment extends BasicModel {
 
   longitude: number;
 
+  numberOfRooms: number;
+
 
   images: Image[] = [];
+
+  governorate: string;
 }

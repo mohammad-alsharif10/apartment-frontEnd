@@ -17,7 +17,6 @@ export class AuthComponent implements OnInit {
 
   loginRequest: LoginRequest = new LoginRequest();
   @ViewChild('jqxLoader') jqxLoader: jqxLoaderComponent;
-  showLoading = false;
 
   constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
   }

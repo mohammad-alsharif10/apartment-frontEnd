@@ -122,8 +122,9 @@
 /*  width: 40%;*/
 /*}*/
 
+
 .btn-primary {
   color: #fff;
-  background-color: #656ce9;
-  border-color: #656ce9;
+  background-color: crimson;
+  border-color: crimson;
 }

@@ -1,27 +1,160 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form #signUpForm="ngForm" (ngSubmit)="postApartment()">
-        <div id="user-data1">
+  <form #signUpForm="ngForm" (ngSubmit)="postApartment()" class="space-form">
+    <div class="card">
+      <h3 class="header">
+        Basic Info
+      </h3>
+      <div class="row space-row">
+        <div class="col-md-4">
           <div class="form-group">
-            <label for="username">regionName</label>
-            <input [(ngModel)]="apartment.regionName" class="form-control" id="username" name="userName" required
+            <label for="monthlyRent">Monthly Rent:</label>
+            <input [(ngModel)]="apartment.monthlyRent"
+                   class="form-control"
+                   id="monthlyRent"
+                   name="monthlyRent"
+                   placeholder="monthly Rent"
+                   required
+                   type="number">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="numberOfRooms">Number of Rooms:</label>
+            <input [(ngModel)]="apartment.numberOfRooms"
+                   class="form-control"
+                   id="numberOfRooms"
+                   name="numberOfRooms"
+                   placeholder="number OfRooms"
+                   required
+                   type="number">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="area">Area:</label>
+            <input [(ngModel)]="apartment.area"
+                   class="form-control"
+                   id="area"
+                   name="area"
+                   placeholder="area"
+                   required
+                   type="number">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="header">
+        Address
+      </h3>
+      <div class="row space-row-1">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="governorate">Governorate:</label>
+            <input [(ngModel)]="apartment.governorate"
+                   class="form-control"
+                   id="governorate"
+                   name="governorate"
+                   placeholder="governorate"
+                   required
                    type="text">
           </div>
-          <div class="form-group">
-            <label for="password">streetName</label>
-            <input [(ngModel)]="apartment.streetName" class="form-control" id="password" name="password"
-                   required type="text">
-          </div>
-          <div class="form-group">
-            <label for="images">Username</label>
-            <input (change)="onFileChanged($event)" class="form-control" id="images" multiple name="images" required type="file">
-          </div>
-
         </div>
-        <button [disabled]="!signUpForm.valid" class="btn btn-primary" type="submit">Submit</button>
-      </form>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="region">Region:</label>
+            <input [(ngModel)]="apartment.regionName"
+                   class="form-control"
+                   id="region"
+                   name="regionName"
+                   placeholder="region"
+                   required
+                   type="text">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="neighborhoodName">Neighborhood:</label>
+            <input [(ngModel)]="apartment.neighborhoodName"
+                   class="form-control"
+                   id="neighborhoodName"
+                   name="neighborhoodName"
+                   placeholder="neighborhood"
+                   required
+                   type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row space-row-2">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="Street">Street:</label>
+            <input [(ngModel)]="apartment.streetName"
+                   class="form-control"
+                   id="Street"
+                   name="streetName"
+                   placeholder="Street"
+                   required
+                   type="text">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="blockNumber">Block Number:</label>
+            <input [(ngModel)]="apartment.blockNumber"
+                   class="form-control"
+                   id="blockNumber"
+                   name="blockNumber"
+                   placeholder="block"
+                   required
+                   type="number">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="floorNumber">Floor:</label>
+            <input [(ngModel)]="apartment.floorNumber"
+                   class="form-control"
+                   id="floorNumber"
+                   name="floorNumber"
+                   placeholder="floor"
+                   required
+                   type="number">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div class="card">
+      <h3 class="header">
+        Upload Images
+      </h3>
+      <div class="row space-row justify-content-center">
+        <div class="col-md-6">
+          <input (change)="onFileChanged($event)"
+                 class="form-control-file border"
+                 id="images"
+                 multiple
+                 name="images"
+                 required
+                 type="file">
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <button [disabled]="!signUpForm.valid" class="btn btn-primary" type="submit">Submit</button>
+    </div>
+
+  </form>
+</div>
+<div>
+  <jqxLoader #jqxLoader
+             [autoOpen]="false" [height]="150"
+             [imagePosition]="'center'"
+             [text]="'Uploading The Apartment'"
+             [width]="150">
+  </jqxLoader>
 </div>
