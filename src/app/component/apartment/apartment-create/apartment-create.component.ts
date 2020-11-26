@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Apartment} from '../../../model/Apartment';
-import {ApartmentService} from '../../../service/apartment.service';
+import {ApartmentService} from '../service/apartment.service';
 import {jqxLoaderComponent} from 'jqwidgets-ng/jqxloader';
 import {Router} from '@angular/router';
 

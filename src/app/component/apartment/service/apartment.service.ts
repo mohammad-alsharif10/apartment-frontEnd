@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Apartment} from '../model/Apartment';
+import {Apartment} from '../../../model/Apartment';
 import {Observable} from 'rxjs';
-import {SingleResult} from '../model/SingleResult';
-import {Constants} from '../utils/Constants';
-import {PageResult} from '../model/PageResult';
+import {SingleResult} from '../../../model/SingleResult';
+import {Constants} from '../../../utils/Constants';
+import {PageResult} from '../../../model/PageResult';
 
 @Injectable({
   providedIn: 'root'

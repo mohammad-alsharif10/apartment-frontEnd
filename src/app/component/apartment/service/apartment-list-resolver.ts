@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {PageResult} from '../model/PageResult';
-import {Apartment} from '../model/Apartment';
+import {PageResult} from '../../../model/PageResult';
+import {Apartment} from '../../../model/Apartment';
 import {Observable} from 'rxjs';
-import {ApartmentService} from '../service/apartment.service';
+import {ApartmentService} from './apartment.service';
 
 @Injectable()
 export class ApartmentListResolver implements Resolve<PageResult<Apartment>> {

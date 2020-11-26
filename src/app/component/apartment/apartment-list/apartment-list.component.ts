@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PageResult} from '../../../model/PageResult';
 import {Apartment} from '../../../model/Apartment';
-import {ApartmentService} from '../../../service/apartment.service';
+import {ApartmentService} from '../service/apartment.service';
 
 @Component({
   selector: 'app-apartment-list',

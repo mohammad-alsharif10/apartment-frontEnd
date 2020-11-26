@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoginRequest} from '../../model/LoginRequest';
-import {AuthService} from '../../service/auth.service';
+import {AuthService} from './service/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {stringify} from 'querystring';
 import {Constants} from '../../utils/Constants';
