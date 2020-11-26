@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PageResult} from '../../../model/PageResult';
 import {Apartment} from '../../../model/Apartment';
 import {ApartmentService} from '../service/apartment.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-apartment-list',
@@ -13,11 +14,12 @@ export class ApartmentListComponent implements OnInit {
   apartmentPageResult: PageResult<Apartment> = new PageResult<Apartment>();
   values: number[] = [102, 115, 130, 137];
 
-  constructor(private apartmentService: ApartmentService) {
+  constructor(private apartmentService: ApartmentService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.apartmentService.apartmentPage().subscribe(value => this.apartmentPageResult = value);
+    console.log(this.activatedRoute.snapshot);
+    this.apartmentPageResult = this.activatedRoute.snapshot.data.apartmentPageResult;
   }
 
 

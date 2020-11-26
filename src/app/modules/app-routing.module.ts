@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AuthComponent} from './component/auth/auth.component';
-import {NotFoundComponent} from './component/not-found/not-found.component';
-import {AuthGuard} from './component/auth/service/auth.guard';
-import {ProfileComponent} from './component/profile/profile.component';
+import {AuthComponent} from '../component/auth/auth.component';
+import {NotFoundComponent} from '../component/not-found/not-found.component';
+import {AuthGuard} from '../component/auth/service/auth.guard';
+import {ProfileComponent} from '../component/profile/profile.component';
 
 
 const appRoutes: Routes = [

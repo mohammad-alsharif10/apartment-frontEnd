@@ -4,6 +4,7 @@ import {PageResult} from '../../../model/PageResult';
 import {Apartment} from '../../../model/Apartment';
 import {Observable} from 'rxjs';
 import {ApartmentService} from './apartment.service';
+import {tap} from 'rxjs/operators';
 
 @Injectable()
 export class ApartmentListResolver implements Resolve<PageResult<Apartment>> {
@@ -12,11 +13,9 @@ export class ApartmentListResolver implements Resolve<PageResult<Apartment>> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
-    : Observable<PageResult<Apartment>> | Promise<PageResult<Apartment>> | PageResult<Apartment> {
-    let apartmentPageResult = new PageResult<Apartment>();
-    this.apartmentService.apartmentPage().subscribe(value => {
-      apartmentPageResult = value;
-    });
-    return apartmentPageResult;
+    : Observable<PageResult<Apartment>>
+    | Promise<PageResult<Apartment>>
+    | PageResult<Apartment> {
+    return this.apartmentService.apartmentPage().pipe(tap(value => console.log(value)));
   }
 }
